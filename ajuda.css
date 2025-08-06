@@ -1,0 +1,224 @@
+/* Aplica fonte Inter em todo o corpo */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Container principal */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px; /* para não ficar sob a faixa fixa */
+}
+
+/* Cabeçalho com faixa preta sólida e sombra */
+.header-faixa {
+  background: #000000;
+  padding: 10px 30px;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-bottom: 4px solid #ff0000;
+}
+
+/* Título com nome e símbolo */
+.titulo-menor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px!important;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+}
+
+/* Bola branca com número 7 em preto */
+.bola7 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  background: linear-gradient(135deg, #ffffff, #e0e0e0); /* branco com leve degradê cinza */
+  border-radius: 50%;
+  color: black; /* número preto */
+  font-weight: 900;
+  font-size: 16px;
+  margin-right: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Letra M com degradê vermelho e tamanho menor */
+.multi .m {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+ 
+}
+
+/* Restante da palavra MULTI em branco e menor */
+.multi .ulti {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 22px;
+
+}
+
+/* Letra L com degradê vermelho e tamanho menor */
+.loterias .l {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+/* Restante da palavra LOTERIAS em branco e menor */
+.loterias .oterias {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+/* Conteúdo principal da ajuda */
+.conteudo-ajuda {
+  max-width: 800px;
+  margin: 0px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center; /* centralizar texto */
+  flex: 1;
+
+}
+
+/* Destaque para o e-mail ou chave PIX */
+.pix {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007BFF;
+  
+  padding: 10px;
+  border-radius: 8px;
+  user-select: all;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Mensagem final */
+.mensagem-final {
+  margin-top: 20px;
+  margin-bottom: 80px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #000;
+}
+
+/* Rodapé multilíngue branco com texto preto e espaçamento maior */
+footer {
+  background: #fff !important;  /* Fundo branco */
+  color: #000 !important;       /* Texto preto */
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  user-select: none;
+  border-top: 4px solid white;  /* Linha branca para sumir com a borda preta anterior */
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+/* Contêiner do botão voltar */
+.voltar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+ 
+}
+
+/* Estilo do botão voltar */
+.btn-voltar {
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.btn-voltar:hover {
+  background-color: #1e90ff;
+  color: #ffffff;
+  box-shadow: 0 0 12px 4px rgba(30, 144, 255, 0.8); /* neon azul claro */
+}
+
+footer .termo-link {
+  margin-left: 1px;
+  color: #007BFF; /* Azul padrão */
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+footer .termo-link:hover {
+  text-decoration: underline;
+}
+.email-destaque {
+  color: #007BFF; /* Azul padrão */
+  font-weight: bold;
+  user-select: all; /* permite selecionar facilmente para copiar */
+  
+}
+
+
+h2 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem!important; /* tamanho da fonte */
+  font-weight: 700; /* negrito */
+  color: #000; /* cor do texto */
+  text-align: center; /* centralizar texto */
+  margin-top: 0px; /* espaçamento acima */
+  margin-bottom: 15px; /* espaçamento abaixo */
+}
+
+.conteudo-ajuda ul {
+  margin: 0 auto;               /* centraliza o UL */
+  font-size: 0.95rem!important; /* tamanho da fonte */
+  text-align: left;             /* alinha o texto à esquerda */
+  list-style-type: disc;        /* marcador padrão (bolinha) */
+  list-style-position: inside;  /* marcador alinhado com o texto */
+  padding: 0;
+  max-width: 600px;             /* opcional: controla largura máxima */
+}
+
+

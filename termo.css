@@ -1,0 +1,276 @@
+/* Fonte base */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Container principal com espaço para faixa fixa */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px; /* altura da faixa fixa para não cobrir conteúdo */
+  align-items: center; /* centralizar conteúdo */
+}
+
+/* Faixa preta fixa no topo */
+.header-faixa {
+  background: #000;
+  padding: 10px 30px;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-bottom: 4px solid #ff0000;
+}
+
+/* Título do topo */
+.titulo-menor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+}
+
+/* Letras com destaque */
+.header-faixa .titulo-menor .multi .m,
+.header-faixa .titulo-menor .loterias .l {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.header-faixa .titulo-menor .multi .ulti,
+.header-faixa .titulo-menor .loterias .oterias {
+  color: #fff;
+  font-weight: 900;
+}
+
+.ulti, .oterias {
+  font-size: 22px;
+  font-weight: 900;
+  color: #000000;
+}
+
+/* Bola branca número 7 */
+.bola7 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+  border-radius: 50%;
+  color: black;
+  font-weight: 900;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  margin-right: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Seção da ajuda ou termos */
+.conteudo-ajuda {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centraliza horizontalmente */
+  flex-direction: column;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Caixa do conteúdo dos termos */
+.termo-container {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px;
+  border: 2px solid #000;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.5;
+}
+
+/* Fonte do título direto em conteudo-ajuda */
+.conteudo-ajuda > h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;  /* título grande */
+  font-weight: 800;
+  text-align: center;
+  margin-top: 0; /* remove margem superior padrão */
+  margin-bottom: 20px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+/* Caixa envolvendo as listas de texto, no próprio conteudo-ajuda */
+.conteudo-ajuda {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 40px;
+  
+  border-radius: 16px;
+  
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;  /* texto base */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Listas com margem para separar */
+.conteudo-ajuda > ul.notices {
+  margin: 0;
+  padding-left: 20px;
+  color: #000;
+  font-size: 1rem; /* tamanho do texto das listas */
+  line-height: 1.5; /* para melhor leitura */
+}
+
+
+
+/* Rodapé multilíngue */
+footer {
+  background: #fff !important;
+  color: #000 !important;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  user-select: none;
+  border-top: 4px solid white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Link Termos */
+footer .termo-link {
+  margin-left: 1px;
+  color: #007BFF;
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+footer .termo-link:hover {
+  text-decoration: underline;
+}
+
+/* Botão Voltar */
+.voltar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.btn-voltar {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+}
+
+.btn-voltar:hover {
+  background-color: #1e90ff;
+  box-shadow: 0 0 12px 4px rgba(30,144,255,0.8);
+}
+#help-btn {
+  position: absolute;
+  right: 150px; /* foi 120px, agora mais à esquerda */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+#help-btn img.bola-ajuda {
+  width: 36px;
+  height: 36px;
+  animation: giro-rapido-pausa 5s linear infinite;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  transition: transform 0.3s ease;
+}
+
+/* Texto aparece à direita da bola */
+#help-btn span {
+  display: none;
+  white-space: nowrap;
+  background-color: #000;
+  color: #fff;
+  padding: 8px 14px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0px); /* texto do lado direito da bola */
+  transform: translateY(-50%);
+  z-index: 999;
+  border-radius: 0;
+}
+
+/* Mostra o texto ao passar o mouse */
+#help-btn:hover span[data-lang] {
+  display: inline-block;
+}
+
+/* Animação da rotação */
+@keyframes giro-rapido-pausa {
+  0% {
+    transform: rotateY(0deg);
+  }
+  10% {
+    transform: rotateY(720deg); /* 2 giros rápidos em 0.5s (10% de 5s) */
+  }
+  100% {
+    transform: rotateY(720deg); /* mantém parada até completar 5s */
+  }
+}
+
+/* Garantir que a animação continue mesmo no hover */
+#help-btn:hover img.bola-ajuda {
+  transform: scale(1.1); /* aumenta a bola quando passa o mouse */
+  animation-play-state: running; /* Não pausa a animação */
+}
+

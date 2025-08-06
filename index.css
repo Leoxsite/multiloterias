@@ -1,0 +1,262 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-weight: 400;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: url('fundo-bolas.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Mantém respiro nas bordas */
+  min-height: 100vh; /* Garante que cubra toda a altura da tela */
+
+}
+
+/* Caixa central preta com logo */
+main {
+  background: black;
+  padding: 50px 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  text-align: center;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+/* Estilo do logo menor no index */
+main .titulo-menor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 30px;
+  user-select: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.1em;
+}
+
+/* Bola 7 */
+main .titulo-menor .bola7 {
+  background: radial-gradient(circle, #fff 30%, #ccc 70%);
+  color: #000;
+  font-weight: 900;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px #000;
+  font-size: 30px; /* <-- controla só o tamanho do 7 */
+}
+
+/* Letra M com degradê vermelho */
+main .titulo-menor .multi .m {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+/* Restante da palavra "ULTI" em branco */
+main .titulo-menor .multi .ulti {
+  color: #fff;
+  font-weight: 900;
+}
+
+/* Letra L com degradê vermelho */
+main .titulo-menor .loterias .l {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+/* Restante da palavra "OTERIAS" em branco */
+main .titulo-menor .loterias .oterias {
+  color: #fff;
+  font-weight: 900;
+}
+
+
+
+.subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.notices {
+  list-style-type: disc;
+  text-align: left;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  font-size: 1.0rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.agree-btn {
+  background-color: #2ecc71; /* verde */
+  color: white;
+}
+
+.agree-btn:hover {
+  background-color: #27ae60;
+}
+
+.exit-btn {
+  background-color: #e74c3c; /* vermelho */
+  color: white;
+}
+
+.exit-btn:hover {
+  background-color: #c0392b;
+}
+
+.agree-btn,
+.exit-btn {
+  width: 200px; /* ajuste como quiser */
+  text-align: center;
+}
+
+/* Seletor de idiomas dropdown */
+
+.language-selector {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  margin-top: 12px;
+  margin-right: 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.current-lang-btn {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  user-select: none;
+  font-family: 'Inter', sans-serif !important;
+
+}
+
+.current-lang-btn img {
+  width: 24px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.language-list {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  max-height: 280px;
+  overflow-y: auto;
+  width: 200px;
+  display: none;
+  padding: 0;
+  margin-top: 6px;
+  list-style: none;
+  z-index: 10000;
+}
+
+.language-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+  user-select: none;
+}
+
+.language-list li:last-child {
+  border-bottom: none;
+}
+
+.language-list li img {
+  width: 24px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.language-list li:hover,
+.language-list li:focus {
+  background-color: #f0f0f0;
+  outline: none;
+}
+
+/* Mostrar lista ao abrir */
+.language-list.show {
+  display: block;
+}
+
+/* Scroll para notices */
+.notices::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notices::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.notices::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+.notices::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

@@ -1,0 +1,351 @@
+/* Reset básico */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #ffffff;
+  
+}
+
+/* Container principal */
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px; /* para não ficar sob a faixa fixa */
+}
+
+/* Cabeçalho com título */
+header {
+  background: #fff;
+  border-bottom: 4px solid #000;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header .titulo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  user-select: none;
+  text-align: center;
+}
+
+/* Letra M com degradê vermelho */
+.header-faixa .titulo-menor .multi .m {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+/* Restante da palavra "ULTI" em branco */
+.header-faixa .titulo-menor .multi .ulti {
+  color: #fff;
+  font-weight: 900;
+}
+
+/* Letra L com degradê vermelho */
+.header-faixa .titulo-menor .loterias .l {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+/* Restante da palavra "OTERIAS" em branco */
+.header-faixa .titulo-menor .loterias .oterias {
+  color: #fff;
+  font-weight: 900;
+}
+
+.language-selector {
+  position: absolute;
+  top: 50%; /* ou um valor menor que 15px, tipo 10px, 8px, etc */
+  right: 90px;
+  transform: translateY(-50%); /* pra centralizar verticalmente */
+  z-index: 1000;
+}
+
+
+.current-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.current-lang-btn img {
+  width: 20px;
+  height: 14px;
+}
+
+.language-list {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
+  list-style: none;
+  background: #222;
+  border: 1px solid #555;
+  border-radius: 6px;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.language-list.show {
+  display: block;
+}
+
+.language-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.language-list li img {
+  width: 20px;
+  height: 14px;
+}
+
+.language-list li:hover {
+  background: #444;
+}
+
+
+
+/* Mensagem multilíngue destacada */
+.message {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.0rem;
+  margin: 25px 0 15px 0;
+  font-weight: 600;
+  color: red;
+  animation: blink 1s step-start infinite;
+  margin-top: 30px;    /* margem em cima */
+margin-bottom: 30px; /* margem embaixo */
+}
+
+@keyframes blink {
+  50% {
+    color: black;
+  }
+}
+
+/* Container da rolagem para os botões */
+.scroll-container {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #fff;
+  padding: 10px 20px;
+}
+
+/* Container dos botões com quebra de linha e centralizado */
+.botoes-bandeiras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 35px; /* horizontal 40px, vertical 30px */
+}
+
+
+/* Botões das bandeiras */
+.flag-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+  
+  
+}
+
+/* Imagem das bandeiras */
+.flag-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  
+  
+  
+}
+
+/* Efeito hover */
+.flag-btn:hover {
+  transform: scale(1.18);
+  
+}
+
+
+
+
+
+/* Rodapé multilíngue branco com texto preto e espaçamento maior */
+footer {
+  background: #fff !important;  /* Fundo branco */
+  color: #000 !important;       /* Texto preto */
+  text-align: center;
+  margin-top: 80px;
+  padding: 10px 20px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  user-select: none;
+  border-top: 4px solid white;  /* Linha branca para sumir com a borda preta anterior */
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+
+/* Tooltip personalizada */
+.tooltip {
+  position: absolute;
+  background: white;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: black;
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  text-align: center;
+  user-select: none;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+/* Cabeçalho com logo ou ícone */
+.header-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.lottery-ball {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* Bola branca número 7 com número preto */
+.bola7 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  background: linear-gradient(135deg, #ffffff, #e0e0e0); /* branco com leve degradê cinza */
+  border-radius: 50%;
+  color: black; /* número preto */
+  font-weight: 900;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  margin-right: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+
+/* Título menor */
+.titulo-menor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+}
+
+/* Faixa preta do topo */
+.header-faixa {
+  background: #000;
+  padding: 10px 30px;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 4px solid #ff0000;
+}
+
+/* Demais letras */
+.ulti,
+.oterias {
+  font-size: 22px;
+}
+
+
+footer .termo-link {
+  margin-left: 1px;
+  color: #007BFF; /* Azul padrão */
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+footer .termo-link:hover {
+  text-decoration: underline;
+}
+#contact-flag {
+  width: 140px;    /* aumenta largura */
+  height: 140px;   /* aumenta altura */
+  
+}
+
+
+#contact-flag {
+  width: 150px;    /* aumenta largura */
+  height: 150px;   /* aumenta altura */
+  
+}
+
+button.flag-btn[onclick*="japao.html"] {
+  width: 155px;    /* aumenta largura */
+  height: 155px;   /* aumenta altura */
+}
+
+button.flag-btn[onclick*="portugal.html"] {
+  width: 150.5px;    /* aumenta largura */
+  height: 150.5px;   /* aumenta altura */
+}

@@ -1,0 +1,839 @@
+/* Aplica fonte Orbitron em todo o corpo */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; /* para não ficar sob a faixa fixa */
+}
+
+/* Faixa preta fixa no topo, com borda inferior preta */
+.header-faixa {
+  background: #000;
+  padding: 10px 30px;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-bottom: 4px solid #ff0000;
+}
+
+/* Título menor com letras grandes e negrito */
+.titulo-menor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+}
+
+/* Letras M e L com degradê vermelho e o restante branco */
+.header-faixa .titulo-menor .multi .m {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.header-faixa .titulo-menor .multi .ulti {
+  color: #fff;
+  font-weight: 900;
+}
+
+.header-faixa .titulo-menor .loterias .l {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.header-faixa .titulo-menor .loterias .oterias {
+  color: #fff;
+  font-weight: 900;
+}
+
+/* Bola branca número 7 com número preto */
+.bola7 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  background: linear-gradient(135deg, #ffffff, #e0e0e0); /* branco com leve degradê cinza */
+  border-radius: 50%;
+  color: black; /* número preto */
+  font-weight: 900;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  margin-right: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.ulti,
+.oterias {
+  font-size: 22px;
+  font-weight: 900;
+  color: #000000;
+}
+
+#help-btn {
+  position: absolute;
+  right: 150px; /* foi 120px, agora mais à esquerda */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+#help-btn img.bola-ajuda {
+  width: 36px;
+  height: 36px;
+  animation: giro-rapido-pausa 5s linear infinite;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  transition: transform 0.3s ease;
+}
+
+/* Texto aparece à direita da bola */
+#help-btn span {
+  display: none;
+  white-space: nowrap;
+  background-color: #000;
+  color: #fff;
+  padding: 8px 14px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0px); /* texto do lado direito da bola */
+  transform: translateY(-50%);
+  z-index: 999;
+  border-radius: 0;
+}
+
+/* Mostra o texto ao passar o mouse */
+#help-btn:hover span[data-lang] {
+  display: inline-block;
+}
+
+/* Animação da rotação */
+@keyframes giro-rapido-pausa {
+  0% {
+    transform: rotateY(0deg);
+  }
+  10% {
+    transform: rotateY(720deg); /* 2 giros rápidos em 0.5s (10% de 5s) */
+  }
+  100% {
+    transform: rotateY(720deg); /* mantém parada até completar 5s */
+  }
+}
+
+/* Garantir que a animação continue mesmo no hover */
+#help-btn:hover img.bola-ajuda {
+  transform: scale(1.1); /* aumenta a bola quando passa o mouse */
+  animation-play-state: running; /* Não pausa a animação */
+}
+
+
+
+/* Tooltip personalizada */
+.tooltip {
+  position: absolute;
+  background: white;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: black;
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  text-align: center;
+  user-select: none;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+
+
+/* Mensagem final */
+.mensagem-final {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #444444;
+}
+
+/* Rodapé multilíngue branco com texto preto e espaçamento maior */
+footer {
+  background: #fff !important;  /* Fundo branco */
+  color: #000 !important;       /* Texto preto */
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  user-select: none;
+  border-top: 4px solid white;  /* Linha branca para sumir com a borda preta anterior */
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+/* Passo a passo dentro do footer */
+footer .passo-a-passo {
+  font-family: Inter, sans-serif;
+  font-size: 0.8rem;
+  color: #111111;                /* texto escuro */
+  background-color: rgba(255,255,255,0.85); /* fundo branco levemente translúcido */
+  text-align: left;
+  line-height: 1.6;
+  margin: 0 auto 10px auto;
+  padding: 12px 16px;
+  border-radius: 6px;
+  width: fit-content;
+  max-width: 90%;
+  user-select: none;
+  
+}
+
+/* Voltar container e botão mantidos do original */
+.voltar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* Estilo do botão voltar */
+.btn-voltar {
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.btn-voltar:hover {
+  background-color: #1e90ff;
+  color: #ffffff;
+  box-shadow: 0 0 12px 4px rgba(30, 144, 255, 0.8); /* neon azul claro */
+}
+
+/* Restante do CSS original sem alteração */
+.loterias-container {
+  margin-top: 0px;
+  margin-left: 60px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.linha-jogo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.jogo-info {
+  background-color: transparent !important;
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin-right: 30px; /* aumenta o espaço entre nome e linha */
+  /* se quiser, pode ajustar esse valor */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 200px;
+  align-items: center;
+}
+
+/* Remove qualquer efeito ao passar o mouse nos títulos */
+.nome-loteria:hover {
+  color: inherit;
+  text-shadow: inherit;
+}
+
+.btn-sortear {
+  position: relative;
+  display: inline-block;
+  padding: 20px 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #fff7b1;
+  background: linear-gradient(135deg, #f9d423 0%, #ffb800 50%, #d18c00 100%);
+  border-radius: 40px;
+  border: 2px solid #d18c00;
+  box-shadow:
+    0 4px 8px rgba(255, 184, 0, 0.8),
+    inset 0 -3px 6px rgba(255, 255, 255, 0.4),
+    0 8px 15px rgba(209, 140, 0, 0.6);
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0    2px 4px rgba(0, 0, 0, 0.5);
+  perspective: 1000px;
+  z-index: 1;
+}
+
+/* Flash animado SUAVE */
+.btn-sortear::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: flashMove 2.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+/* Hover com 3D e brilho extra */
+.btn-sortear:hover {
+  background: linear-gradient(135deg, #fff16b 0%, #ffd800 50%, #c78f00 100%);
+  border-color: #ffea00;
+  box-shadow:
+    0 6px 12px rgba(255, 223, 0, 1),
+    inset 0 -4px 8px rgba(255, 255, 255, 0.7),
+    0 10px 25px rgba(255, 223, 0, 0.9);
+  transform: translateY(-4px) rotateX(7deg);
+  outline: none;
+}
+
+
+/* Pressionado */
+.btn-sortear:active {
+  transform: translateY(0) rotateX(0);
+  box-shadow:
+    0 3px 8px rgba(255, 184, 0, 0.7),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes flashMove {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+.resultado-bolas {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 250px;
+  padding-left: 10px;
+  border-left: 2px solid #dddddd;
+}
+
+/* Texto dos números dentro das bolas */
+.bola > div {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo base das bolas */
+.bola {
+  position: relative;
+  border-radius: 50%;
+  color: black;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: default;
+  perspective: 600px;
+  transition: transform 0.6s;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+/* Estilo base das bolas douradas */
+.bola.dourada {
+  background: radial-gradient(circle at center, #FFEA70, #E6C200);
+  box-shadow: 0 0 12px rgba(255, 234, 112, 0.9);
+  color: black;
+}
+
+.estrela {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.estrela::before,
+.estrela::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  top: 0;
+  left: 0;
+}
+
+.estrela::before {
+  background: black; /* Contorno */
+  transform: scale(1.1); /* Ligeiramente maior para fazer o contorno */
+  z-index: 0;
+}
+
+.estrela::after {
+  background: gold; /* Estrela verdadeira */
+  box-shadow:
+    0 0 12px rgba(255, 215, 0, 0.9),
+    0 0 24px rgba(255, 215, 0, 0.6);
+  z-index: 1;
+}
+
+
+
+
+.aviso-interacao {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: red;
+  animation: blink 1s step-start infinite;
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes blink {
+  0%, 100% {
+    color: red;
+  }
+  50% {
+    color: black;
+  }
+}
+footer .termo-link {
+  margin-left: 1px;
+  color: #007BFF; /* Azul padrão */
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+footer .termo-link:hover {
+  text-decoration: underline;
+}
+
+.linha-jogo {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+
+@keyframes brilho {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(192, 192, 192, 0.6), /* prata */
+      0 0 20px rgba(128, 128, 128, 0.4); /* cinza */
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(211, 211, 211, 0.8), /* prata clara */
+      0 0 36px rgba(169, 169, 169, 0.5); /* cinza escuro */
+  }
+}
+
+.bola {
+  animation: brilho 1.6s ease-in-out infinite !important;
+}
+
+
+
+/* euromillions */
+#euromillions .bola {
+  width: 120px !important;
+  height: 120px !important;
+  font-size: 44px !important;
+}
+
+
+/* lotto */
+#lotto .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+
+/* all-or-nothing */
+#all-or-nothing .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+/* n49s */
+#n49s .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+
+/* lotto-hotpicks */
+#lotto-hotpicks .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+
+/* health-lottery */
+#health-lottery .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+/* thunderball */
+#thunderball .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+
+/* set-for-life */
+#set-for-life .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+
+/* pick-3-uk */
+#pick-3-uk .bola {
+  width: 145px !important;
+  height: 145px !important;
+  font-size: 54px !important;
+}
+
+.nome-loteria {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  user-select: none;
+  cursor: default;
+  z-index: 1;
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.7);
+  text-shadow:
+    1px 1px 0px rgba(0,0,0,0.9),
+    2px 2px 2px rgba(0,0,0,0.7),
+    4px 4px 6px rgba(0,0,0,0.5);
+  transition: color 0.3s ease;
+  
+}
+
+.nome-loteria.flash::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: flashPassar 2.5s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+#euromillions .nome-loteria {
+  font-size: 1.7rem;
+  color: #003087; /* azul escuro */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-euromillions 3s ease-in-out infinite;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes brilho-pulsante-euromillions {
+  0%, 100% { color: #003087; }
+  50% { color: #0055cc; }
+}
+
+#lotto .nome-loteria {
+  font-size: 2.8rem;
+  color: #E30613; /* vermelho vivo padrão */
+  text-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.9),
+    2px 2px 2px rgba(0, 0, 0, 0.7),
+    4px 4px 5px rgba(0, 0, 0, 0.5),
+    6px 6px 10px rgba(0, 0, 0, 0.8);
+  animation: brilho-pulsante-lotto 3s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+@keyframes brilho-pulsante-lotto {
+  0%, 100% {
+    color: #E30613; /* vermelho vivo */
+  }
+  50% {
+    color: #B00010; /* vermelho um pouco mais escuro */
+  }
+}
+
+#all-or-nothing .nome-loteria {
+  font-size: 2.5rem;
+  color: #7E57C2; /* roxo */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-all-or-nothing 3s ease-in-out infinite;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  
+}
+
+@keyframes brilho-pulsante-all-or-nothing {
+  0%, 100% {
+    color: #7E57C2;
+  }
+  50% {
+    color: #A084DC; /* tom mais claro de roxo no pulso */
+  }
+}
+
+#n49s .nome-loteria {
+  font-size: 2.5rem;
+  color: #0073cf; /* azul */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-n49s 3s ease-in-out infinite;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes brilho-pulsante-n49s {
+  0%, 100% {
+    color: #0073cf;
+  }
+  50% {
+    color: #3399ff; /* azul mais claro no pulso */
+  }
+}
+
+#lotto-hotpicks .nome-loteria {
+  font-size: 2.3rem;
+  color: #E30613; /* vermelho vivo padrão */
+  text-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.9),
+    2px 2px 2px rgba(0, 0, 0, 0.7),
+    4px 4px 5px rgba(0, 0, 0, 0.5),
+    6px 6px 10px rgba(0, 0, 0, 0.8);
+  animation: brilho-pulsante-lotto-hotpicks 3s ease-in-out infinite;
+  
+}
+
+@keyframes brilho-pulsante-lotto-hotpicks {
+  0%, 100% {
+    color: #E30613; /* vermelho vivo */
+  }
+  50% {
+    color: #B00010; /* vermelho um pouco mais escuro */
+  }
+}
+
+#health-lottery .nome-loteria {
+  font-size: 2.3rem;
+  color: #ffcc00; /* amarelo */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-health-lottery 3s ease-in-out infinite;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes brilho-pulsante-health-lottery {
+  0%, 100% {
+    color: #ffcc00;
+  }
+  50% {
+    color: #ffea44; /* amarelo mais claro no pulso */
+  }
+}
+
+#thunderball .nome-loteria {
+  font-size: 1.7rem;
+  color: #800080; /* roxo */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-thunderball 3s ease-in-out infinite;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes brilho-pulsante-thunderball {
+  0%, 100% {
+    color: #800080;
+  }
+  50% {
+    color: #A040A0; /* tom mais claro roxo */
+  }
+}
+
+#set-for-life .nome-loteria {
+  font-size: 1.8rem;
+  color: #87CEFA; /* azul claro */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-set-for-life 3s ease-in-out infinite;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes brilho-pulsante-set-for-life {
+  0%, 100% {
+    color: #87CEFA;
+  }
+  50% {
+    color: #B0E0FF; /* azul mais claro no pulso */
+  }
+}
+
+#pick-3-uk .nome-loteria {
+  font-size: 2.5rem;
+  color: #ff4500; /* laranja avermelhado */
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 2px #000,
+    4px 4px 6px #000,
+    6px 6px 10px #000;
+  animation: brilho-pulsante-pick-3-uk 3s ease-in-out infinite;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@keyframes brilho-pulsante-pick-3-uk {
+  0%, 100% {
+    color: #ff4500;
+  }
+  50% {
+    color: #ff7a3a; /* tom mais claro para o pulso */
+  }
+}
+
+
+
+
+
