@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- hreflang para todas as versões -->
+  <link rel="alternate" hreflang="pt-BR" href="https://www.multiloterias.com/pt-BR/" />
+  <link rel="alternate" hreflang="en-US" href="https://www.multiloterias.com/en-US/" />
+  <link rel="alternate" hreflang="es-ES" href="https://www.multiloterias.com/es-ES/" />
+  <link rel="alternate" hreflang="fr-FR" href="https://www.multiloterias.com/fr-FR/" />
+  <link rel="alternate" hreflang="it-IT" href="https://www.multiloterias.com/it-IT/" />
+  <link rel="alternate" hreflang="de-DE" href="https://www.multiloterias.com/de-DE/" />
+  <link rel="alternate" hreflang="ja-JP" href="https://www.multiloterias.com/ja-JP/" />
+  <link rel="alternate" hreflang="pt-PT" href="https://www.multiloterias.com/pt-PT/" />
+  <link rel="alternate" hreflang="en-GB" href="https://www.multiloterias.com/en-GB/" />
+  <link rel="alternate" hreflang="es-AR" href="https://www.multiloterias.com/es-AR/" />
+  <link rel="alternate" hreflang="es-MX" href="https://www.multiloterias.com/es-MX/" />
+  <link rel="alternate" hreflang="en-CA" href="https://www.multiloterias.com/en-CA/" />
+  <link rel="alternate" hreflang="hi-IN" href="https://www.multiloterias.com/hi-IN/" />
+  <link rel="alternate" hreflang="ko-KR" href="https://www.multiloterias.com/ko-KR/" />
+  <link rel="alternate" hreflang="en-AU" href="https://www.multiloterias.com/en-AU/" />
+  <link rel="alternate" hreflang="en-SG" href="https://www.multiloterias.com/en-SG/" />
+
+  <!-- Versão global, caso não detecte idioma -->
+  <link rel="alternate" hreflang="x-default" href="https://www.multiloterias.com/" />
+
+  <title>Seus jogos de loterias começam aqui! Rápido, fácil e grátis!</title>
+  <meta name="description" content="Teste sua sorte nos jogos de loterias mais famosos do mundo: Powerball, Mega Millions, EuroJackpot, Mega-Sena, Quina, La Primitiva, EuroMillones, Lotto 6aus49, Takarakuji, 나눔 Lotto, 4D e muito mais...">
+
+  
+  <link rel="icon" href="bola-branca.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css" />
+  <meta name="google" content="notranslate" />
+</head>
+
+<body>
+  <!-- Seletor de idiomas dropdown -->
+  <div id="language-selector" class="language-selector">
+    <button id="current-lang-btn" class="current-lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="current-lang-label">
+      <img src="https://flagcdn.com/w320/br.png" alt="Português (Brasil)" />
+      <span id="current-lang-label">PT-BR ▼</span>
+    </button>
+    <ul id="language-list" class="language-list" role="listbox" tabindex="-1" aria-label="Seleção de idioma">
+      <li role="option" data-lang="pt-BR" tabindex="0"><img src="https://flagcdn.com/w640/br.png" alt="Português (Brasil)" /> Português (Brasil)</li>
+      <li role="option" data-lang="en-US" tabindex="0"><img src="https://flagcdn.com/w320/us.png" alt="English (US)" /> English (US)</li>
+      <li role="option" data-lang="es-ES" tabindex="0"><img src="https://flagcdn.com/es.svg" alt="Español (España)" /> Español (España)</li>
+      <li role="option" data-lang="fr-FR" tabindex="0"><img src="https://flagcdn.com/fr.svg" alt="Français (France)" /> Français (France)</li>
+      <li role="option" data-lang="it-IT" tabindex="0"><img src="https://flagcdn.com/it.svg" alt="Italiano (Italia)" /> Italiano (Italia)</li>
+      <li role="option" data-lang="de-DE" tabindex="0"><img src="https://flagcdn.com/de.svg" alt="Deutsch (Deutschland)" /> Deutsch (Deutschland)</li>
+      <li role="option" data-lang="ja-JP" tabindex="0"><img src="https://flagcdn.com/jp.svg" alt="日本語 (日本)" /> 日本語 (日本)</li>
+      <li role="option" data-lang="pt-PT" tabindex="0"><img src="https://flagcdn.com/pt.svg" alt="Português (Portugal)" /> Português (Portugal)</li>
+      <li role="option" data-lang="en-GB" tabindex="0"><img src="https://flagcdn.com/w320/gb.png" alt="English (UK)" /> English (UK)</li>
+      <li role="option" data-lang="es-AR" tabindex="0"><img src="https://flagcdn.com/ar.svg" alt="Español (Argentina)" /> Español (Argentina)</li>
+      <li role="option" data-lang="es-MX" tabindex="0"><img src="https://flagcdn.com/mx.svg" alt="Español (México)" /> Español (México)</li>
+      <li role="option" data-lang="en-CA" tabindex="0"><img src="https://flagcdn.com/w320/ca.png" alt="English (Canada)" /> English (Canada)</li>
+      <li role="option" data-lang="hi-IN" tabindex="0"><img src="https://flagcdn.com/in.svg" alt="हिन्दी (भारत)" /> हिन्दी (भारत)</li>
+      <li role="option" data-lang="ko-KR" tabindex="0"><img src="https://flagcdn.com/kr.svg" alt="한국어 (대한민국)" /> 한국어 (대한민국)</li>
+      <li role="option" data-lang="en-AU" tabindex="0"><img src="https://flagcdn.com/w640/au.png" alt="English (Australia)" /> English (Australia)</li>
+      <li role="option" data-lang="en-SG" tabindex="0"><img src="https://flagcdn.com/sg.svg" alt="English (Singapore)" /> English (Singapore)</li>
+    </ul>
+  </div>
+
+  <div class="background"></div>
+
+  <main>
+    <h1 class="titulo-menor">
+  <span class="bola7">7</span>
+  <span class="multi">
+    <span class="m">M</span><span class="ulti">ULTI</span>
+  </span>
+  <span class="loterias">
+    <span class="l">L</span><span class="oterias">OTERIAS</span>
+  </span>
+</h1>
+
+
+    <!-- Subtítulos traduzidos -->
+    <h2 class="subtitle" data-lang="pt-BR">Leia atentamente os avisos importantes:</h2>
+    <h2 class="subtitle" data-lang="en-US" style="display:none;">Please read the important notices carefully:</h2>
+    <h2 class="subtitle" data-lang="es-ES" style="display:none;">Lea atentamente los avisos importantes:</h2>
+    <h2 class="subtitle" data-lang="fr-FR" style="display:none;">Veuillez lire attentivement les avis importants :</h2>
+    <h2 class="subtitle" data-lang="it-IT" style="display:none;">Leggete attentamente gli avvisi importanti:</h2>
+    <h2 class="subtitle" data-lang="de-DE" style="display:none;">Bitte lesen Sie die wichtigen Hinweise sorgfältig:</h2>
+    <h2 class="subtitle" data-lang="ja-JP" style="display:none;">重要なお知らせをよくお読みください：</h2>
+    <h2 class="subtitle" data-lang="pt-PT" style="display:none;">Leiam atentamente os avisos importantes:</h2>
+    <h2 class="subtitle" data-lang="en-GB" style="display:none;">Please read the important notices carefully:</h2>
+    <h2 class="subtitle" data-lang="es-AR" style="display:none;">Lea atentamente los avisos importantes:</h2>
+    <h2 class="subtitle" data-lang="es-MX" style="display:none;">Lea atentamente los avisos importantes:</h2>
+    <h2 class="subtitle" data-lang="en-CA" style="display:none;">Please read the important notices carefully:</h2>
+    <h2 class="subtitle" data-lang="hi-IN" style="display:none;">कृपया महत्वपूर्ण सूचनाओं को ध्यानपूर्वक पढ़ें:</h2>
+    <h2 class="subtitle" data-lang="ko-KR" style="display:none;">중요한 공지사항들을 주의 깊게 읽어주세요:</h2>
+    <h2 class="subtitle" data-lang="en-AU" style="display:none;">Please read the important notices carefully:</h2>
+    <h2 class="subtitle" data-lang="en-SG" style="display:none;">Please read the important notices carefully:</h2>
+    
+    <!-- Lista de avisos -->
+    <ul class="notices" data-lang="pt-BR">
+<li>Este site não cobra pelos serviços.</li>
+<li>Este site não realiza pagamentos de prêmios.</li>
+<li>Este site é apenas para fins recreativos. Não realiza apostas reais, nem está vinculado a qualquer instituição oficial de Loteria. Verifique os resultados sempre em fontes oficiais.</li>
+<li>Este site não se responsabiliza por jogos sorteados, que não foram realizados (jogados) nos postos ou sites credenciados.</li>
+<li>Jogar é de total responsabilidade do usuário(a).</li>
+<li>Os números gerados são baseados na sorte do usuário(a) e podem não refletir os resultados oficiais.</li>
+<li>Não incentivamos o jogo irresponsável ou para menores de idade.</li>
+<li>Este site não garante ganhos ou prêmios.</li>
+<li>Jogue com responsabilidade. O jogo pode causar dependência.</li>
+<li>Não recolhemos dados pessoais, nem armazenamos as suas apostas.</li>
+</ul>
+    
+    <ul class="notices" data-lang="en-US" style="display:none;">
+<li>This site does not charge for its services.</li>
+<li>This site does not make prize payments.</li>
+<li>This site is for recreational purposes only. It does not conduct real bets and is not linked to any official lottery institution. Always check the results from official sources.</li>
+<li>This site is not responsible for drawn games that were not played at authorized locations or websites.</li>
+<li>Playing is the sole responsibility of the user.</li>
+<li>The generated numbers are based on the user's luck and may not reflect official results.</li>
+<li>We do not encourage irresponsible gambling or gambling by minors.</li>
+<li>This site does not guarantee winnings or prizes.</li>
+<li>Play responsibly. Gambling can be addictive.</li>
+<li>We do not collect personal data or store your bets.</li>
+</ul>
+    
+   <ul class="notices" data-lang="es-ES" style="display:none;">
+<li>Este sitio no cobra por sus servicios.</li>
+<li>Este sitio no realiza pagos de premios.</li>
+<li>Este sitio es solo con fines recreativos. No realiza apuestas reales ni está vinculado a ninguna institución oficial de lotería. Verifique siempre los resultados en fuentes oficiales.</li>
+<li>Este sitio no se responsabiliza por juegos sorteados que no hayan sido jugados en puntos o sitios autorizados.</li>
+<li>Jugar es total responsabilidad del usuario.</li>
+<li>Los números generados se basan en la suerte del usuario y pueden no reflejar los resultados oficiales.</li>
+<li>No fomentamos el juego irresponsable ni el juego de menores de edad.</li>
+<li>Este sitio no garantiza ganancias ni premios.</li>
+<li>Juegue con responsabilidad. El juego puede causar adicción.</li>
+<li>No recopilamos datos personales ni almacenamos sus apuestas.</li>
+</ul>
+
+<ul class="notices" data-lang="fr-FR" style="display:none;">
+  <li>Ce site ne facture pas ses services.</li>
+<li>Ce site n’effectue pas de paiements de gains.</li>
+<li>Ce site est uniquement destiné à des fins récréatives. Il ne propose pas de paris réels et n’est lié à aucune institution officielle de loterie. Vérifiez toujours les résultats auprès de sources officielles.</li>
+<li>Ce site n’est pas responsable des tirages joués qui n’ont pas été validés dans les points de vente ou sur les sites agréés.</li>
+<li>Jouer est de la responsabilité exclusive de l’utilisateur.</li>
+<li>Les numéros générés sont basés sur la chance de l’utilisateur et peuvent ne pas refléter les résultats officiels.</li>
+<li>Nous ne favorisons pas le jeu irresponsable ni les jeux d’argent pour les mineurs.</li>
+<li>Ce site ne garantit ni gains ni prix.</li>
+<li>Jouez avec responsabilité. Le jeu peut entraîner une dépendance.</li>
+<li>Nous ne collectons pas de données personnelles et ne stockons pas vos paris.</li>
+</ul>
+
+<ul class="notices" data-lang="it-IT" style="display:none;">
+<li>Questo sito non addebita costi per i servizi.</li>
+<li>Questo sito non effettua pagamenti di premi.</li>
+<li>Questo sito è solo a scopo ricreativo. Non effettua scommesse reali e non è collegato a nessuna istituzione ufficiale della lotteria. Verificare sempre i risultati presso fonti ufficiali.</li>
+<li>Questo sito non è responsabile per estrazioni giocate ma non effettuate nei punti autorizzati o siti ufficiali.</li>
+<li>Il gioco è di totale responsabilità dell’utente.</li>
+<li>I numeri generati si basano sulla fortuna dell’utente e potrebbero non riflettere i risultati ufficiali.</li>
+<li>Non incoraggiamo il gioco irresponsabile né il gioco da parte dei minori.</li>
+<li>Questo sito non garantisce vincite o premi.</li>
+<li>Gioca responsabilmente. Il gioco può causare dipendenza.</li>
+<li>Non raccogliamo dati personali né memorizziamo le tue giocate.</li>
+</ul>
+
+<ul class="notices" data-lang="de-DE" style="display:none;">
+<li>Diese Website erhebt keine Gebühren für ihre Dienste.</li>
+<li>Diese Website zahlt keine Gewinne aus.</li>
+<li>Diese Website dient ausschließlich zu Freizeitzwecken. Sie bietet keine echten Wetten an und ist nicht mit einer offiziellen Lotterieinstitution verbunden. Überprüfen Sie die Ergebnisse immer bei offiziellen Quellen.</li>
+<li>Diese Website ist nicht verantwortlich für ausgeloste Spiele, die nicht bei autorisierten Stellen oder Websites gespielt wurden.</li>
+<li>Das Spielen liegt in der alleinigen Verantwortung des Nutzers.</li>
+<li>Die generierten Zahlen basieren auf dem Glück des Nutzers und spiegeln möglicherweise nicht die offiziellen Ergebnisse wider.</li>
+<li>Wir fördern kein unverantwortliches Spielen oder das Spielen von Minderjährigen.</li>
+<li>Diese Website garantiert keine Gewinne oder Preise.</li>
+<li>Spielen Sie verantwortungsbewusst. Glücksspiel kann süchtig machen.</li>
+<li>Wir erfassen keine persönlichen Daten und speichern Ihre Einsätze nicht.</li>
+</ul>
+
+<ul class="notices" data-lang="ja-JP" style="display:none;">
+<li>このサイトはサービスに料金を請求しません。</li>
+<li>このサイトは賞金の支払いを行いません。</li>
+<li>このサイトは娯楽目的のみです。本物の賭けを提供せず、いかなる公的な宝くじ機関とも関係ありません。結果は必ず公式の情報源で確認してください。</li>
+<li>このサイトは、認定された場所または公式サイトで行われなかった抽選結果に対して責任を負いません。</li>
+<li>プレイはユーザー自身の責任です。</li>
+<li>生成された番号はユーザーの運に基づいており、公式結果を反映しない場合があります。</li>
+<li>無責任な賭けや未成年者の賭けを推奨しません。</li>
+<li>このサイトは賞金や当選を保証しません。</li>
+<li>責任を持ってプレイしてください。ギャンブルには依存性があります。</li>
+<li>当サイトは個人情報を収集したり、賭け内容を保存したりしません。</li>
+</ul>
+
+<ul class="notices" data-lang="pt-PT" style="display:none;">
+<li>Este site não cobra pelos serviços.</li>
+<li>Este site não realiza pagamentos de prémios.</li>
+<li>Este site é apenas para fins recreativos. Não realiza apostas reais nem está vinculado a qualquer instituição oficial de lotaria. Verifique sempre os resultados em fontes oficiais.</li>
+<li>Este site não se responsabiliza por jogos sorteados que não foram jogados nos postos ou sites credenciados.</li>
+<li>Jogar é da total responsabilidade do utilizador.</li>
+<li>Os números gerados baseiam-se na sorte do utilizador e podem não refletir os resultados oficiais.</li>
+<li>Não incentivamos o jogo irresponsável ou a menores de idade.</li>
+<li>Este site não garante ganhos ou prémios.</li>
+<li>Jogue com responsabilidade. O jogo pode causar dependência.</li>
+<li>Não recolhemos dados pessoais nem armazenamos as suas apostas.</li>
+</ul>
+
+<ul class="notices" data-lang="en-GB" style="display:none;">
+<li>This site does not charge for its services.</li>
+<li>This site does not make prize payments.</li>
+<li>This site is for recreational purposes only. It does not conduct real bets and is not linked to any official lottery institution. Always check the results from official sources.</li>
+<li>This site is not responsible for drawn games that were not played at authorised locations or websites.</li>
+<li>Playing is the sole responsibility of the user.</li>
+<li>The generated numbers are based on the user's luck and may not reflect official results.</li>
+<li>We do not encourage irresponsible gambling or gambling by minors.</li>
+<li>This site does not guarantee winnings or prizes.</li>
+<li>Play responsibly. Gambling can be addictive.</li>
+<li>We do not collect personal data or store your bets.</li>
+</ul>
+
+<ul class="notices" data-lang="es-AR" style="display:none;">
+<li>Este sitio no cobra por sus servicios.</li>
+<li>Este sitio no realiza pagos de premios.</li>
+<li>Este sitio es solo con fines recreativos. No realiza apuestas reales ni está vinculado a ninguna institución oficial de lotería. Verifique siempre los resultados en fuentes oficiales.</li>
+<li>Este sitio no se responsabiliza por juegos sorteados que no hayan sido jugados en puntos o sitios oficiales.</li>
+<li>Jugar es responsabilidad total del usuario.</li>
+<li>Los números generados se basan en la suerte del usuario y pueden no reflejar los resultados oficiales.</li>
+<li>No promovemos el juego irresponsable ni el juego por parte de menores.</li>
+<li>Este sitio no garantiza premios ni ganancias.</li>
+<li>Juegue con responsabilidad. El juego puede generar adicción.</li>
+<li>No recopilamos datos personales ni almacenamos sus apuestas.</li>
+</ul>
+
+<ul class="notices" data-lang="es-MX" style="display:none;">
+<li>Este sitio no cobra por sus servicios.</li>
+<li>Este sitio no realiza pagos de premios.</li>
+<li>Este sitio es solo con fines recreativos. No realiza apuestas reales ni está vinculado a ninguna institución oficial de lotería. Verifique siempre los resultados en fuentes oficiales.</li>
+<li>Este sitio no se hace responsable por sorteos que no hayan sido jugados en lugares autorizados o sitios web oficiales.</li>
+<li>Jugar es responsabilidad total del usuario.</li>
+<li>Los números generados se basan en la suerte del usuario y pueden no coincidir con los resultados oficiales.</li>
+<li>No fomentamos el juego irresponsable ni el juego por menores de edad.</li>
+<li>Este sitio no garantiza premios ni recompensas.</li>
+<li>Juega con responsabilidad. El juego puede causar adicción.</li>
+<li>No recopilamos datos personales ni almacenamos tus apuestas.</li>
+</ul>
+
+<ul class="notices" data-lang="en-CA" style="display:none;">
+<li>This site does not charge for its services.</li>
+<li>This site does not make prize payments.</li>
+<li>This site is for recreational purposes only. It does not conduct real bets and is not linked to any official lottery institution. Always check the results from official sources.</li>
+<li>This site is not responsible for drawn games that were not played at authorized locations or websites.</li>
+<li>Playing is the sole responsibility of the user.</li>
+<li>The generated numbers are based on the user's luck and may not reflect official results.</li>
+<li>We do not encourage irresponsible gambling or gambling by minors.</li>
+<li>This site does not guarantee winnings or prizes.</li>
+<li>Play responsibly. Gambling can be addictive.</li>
+<li>We do not collect personal data or store your bets.</li>
+</ul>
+
+<ul class="notices" data-lang="hi-IN" style="display:none;">
+<li>यह साइट अपनी सेवाओं के लिए शुल्क नहीं लेती है।</li>
+<li>यह साइट पुरस्कार भुगतान नहीं करती है।</li>
+<li>यह साइट केवल मनोरंजन के उद्देश्यों के लिए है। यह वास्तविक सट्टेबाजी नहीं करती है और किसी भी आधिकारिक लॉटरी संस्था से संबद्ध नहीं है। परिणामों को हमेशा आधिकारिक स्रोतों से जांचें।</li>
+<li>यह साइट उन ड्रॉ के लिए ज़िम्मेदार नहीं है जो अधिकृत स्थानों या वेबसाइटों पर नहीं खेले गए हैं।</li>
+<li>खेलना पूरी तरह से उपयोगकर्ता की ज़िम्मेदारी है।</li>
+<li>उत्पन्न संख्या उपयोगकर्ता की किस्मत पर आधारित होती है और वे आधिकारिक परिणामों को प्रतिबिंबित नहीं कर सकती हैं।</li>
+<li>हम गैर-जिम्मेदाराना खेल या नाबालिगों द्वारा खेल को प्रोत्साहित नहीं करते हैं।</li>
+<li>यह साइट पुरस्कार या जीत की गारंटी नहीं देती है।</li>
+<li>जिम्मेदारी से खेलें। जुआ व्यसनी बना सकता है।</li>
+<li>हम व्यक्तिगत डेटा एकत्र नहीं करते हैं और न ही आपकी शर्तों को संग्रहित करते हैं।</li>
+</ul>
+
+<ul class="notices" data-lang="ko-KR" style="display:none;">
+  <li>이 사이트는 어떤 서비스에 대해서도 요금을 부과하지 않습니다.</li>
+  <li>이 사이트는 당첨금 지급을 하지 않습니다.</li>
+  <li>이 사이트는 오직 오락 목적의 용도이며, 실제 도박을 제공하지 않으며 어떤 공식 복권 기관과도 관련이 없습니다. 항상 공식 출처에서 결과를 확인하세요.</li>
+  <li>이 사이트는 공인된 판매점이나 사이트에서 실제로 구매하지 않은 복권 결과에 대해 책임지지 않습니다.</li>
+  <li>복권 구매 및 이용은 전적으로 사용자 본인의 책임입니다.</li>
+  <li>생성된 숫자는 사용자님의 운에 기반하며, 실제 공식 결과와 일치하지 않을 수 있습니다.</li>
+  <li>우리는 무책임한 도박이나 미성년자의 도박을 권장하지 않습니다.</li>
+  <li>이 사이트는 어떤 당첨이나 수익도 보장하지 않습니다.</li>
+  <li>도박은 중독을 유발할 수 있습니다. 책임감 있게 이용하세요.</li>
+  <li>우리는 개인 정보를 수집하거나 사용자의 베팅 정보를 저장하지 않습니다.</li>
+</ul>
+
+<ul class="notices" data-lang="en-AU" style="display:none;">
+<li>This site does not charge for its services.</li>
+<li>This site does not make prize payments.</li>
+<li>This site is for recreational purposes only. It does not conduct real bets and is not linked to any official lottery institution. Always check the results from official sources.</li>
+<li>This site is not responsible for drawn games that were not played at authorized locations or websites.</li>
+<li>Playing is the sole responsibility of the user.</li>
+<li>The generated numbers are based on the user's luck and may not reflect official results.</li>
+<li>We do not encourage irresponsible gambling or gambling by minors.</li>
+<li>This site does not guarantee winnings or prizes.</li>
+<li>Play responsibly. Gambling can be addictive.</li>
+<li>We do not collect personal data or store your bets.</li>
+</ul>
+
+<ul class="notices" data-lang="en-SG" style="display:none;">
+<li>This site does not charge for its services.</li>
+<li>This site does not make prize payments.</li>
+<li>This site is for recreational purposes only. It does not conduct real bets and is not linked to any official lottery institution. Always check the results from official sources.</li>
+<li>This site is not responsible for drawn games that were not played at authorized locations or websites.</li>
+<li>Playing is the sole responsibility of the user.</li>
+<li>The generated numbers are based on the user's luck and may not reflect official results.</li>
+<li>We do not encourage irresponsible gambling or gambling by minors.</li>
+<li>This site does not guarantee winnings or prizes.</li>
+<li>Play responsibly. Gambling can be addictive.</li>
+<li>We do not collect personal data or store your bets.</li>
+</ul>
+
+    <!-- Adicione as demais listas para os outros idiomas conforme necessário -->
+
+    <!-- Botões -->
+    <div class="buttons">
+      <button class="btn agree-btn" data-lang="pt-BR">Concordar e Entrar</button>
+      <button class="btn exit-btn" data-lang="pt-BR">Sair do Site</button>
+
+      <button class="btn agree-btn" data-lang="en-US" style="display:none;">Agree and Enter</button>
+      <button class="btn exit-btn" data-lang="en-US" style="display:none;">Exit Site</button>
+
+      <button class="btn agree-btn" data-lang="es-ES" style="display:none;">Aceptar y Entrar</button>
+      <button class="btn exit-btn" data-lang="es-ES" style="display:none;">Salir del Sitio</button>
+
+      <button class="btn agree-btn" data-lang="fr-FR" style="display:none;">Accepter et Entrer</button>
+      <button class="btn exit-btn" data-lang="fr-FR" style="display:none;">Quitter le site</button>
+
+      <button class="btn agree-btn" data-lang="it-IT" style="display:none;">Accetta e Entra</button>
+      <button class="btn exit-btn" data-lang="it-IT" style="display:none;">Uscire dal sito</button>
+
+      <button class="btn agree-btn" data-lang="de-DE" style="display:none;">Zustimmen und Betreten</button>
+      <button class="btn exit-btn" data-lang="de-DE" style="display:none;">Seite verlassen</button>
+
+      <button class="btn agree-btn" data-lang="ja-JP" style="display:none;">同意して入る</button>
+      <button class="btn exit-btn" data-lang="ja-JP" style="display:none;">サイトを退出する</button>
+
+      <button class="btn agree-btn" data-lang="pt-PT" style="display:none;">Concordar e Entrar</button>
+      <button class="btn exit-btn" data-lang="pt-PT" style="display:none;">Sair do Site</button>
+
+      <button class="btn agree-btn" data-lang="hi-IN" style="display:none;">सहमत हूँ और प्रवेश करें</button>
+      <button class="btn exit-btn" data-lang="hi-IN" style="display:none;">साइट छोड़ें</button>
+
+      <button class="btn agree-btn" data-lang="en-GB" style="display:none;">Agree and Enter</button>
+      <button class="btn exit-btn" data-lang="en-GB" style="display:none;">Exit Site</button>
+
+      <button class="btn agree-btn" data-lang="es-AR" style="display:none;">Aceptar y Entrar</button>
+      <button class="btn exit-btn" data-lang="es-AR" style="display:none;">Salir del Sitio</button>
+
+      <button class="btn agree-btn" data-lang="es-MX" style="display:none;">Aceptar y Entrar</button>
+      <button class="btn exit-btn" data-lang="es-MX" style="display:none;">Salir del Sitio</button>
+
+      <button class="btn agree-btn" data-lang="en-CA" style="display:none;">Agree and Enter</button>
+      <button class="btn exit-btn" data-lang="en-CA" style="display:none;">Exit Site</button>
+
+      <button class="btn agree-btn" data-lang="ko-KR" style="display:none;">동의하고 입장하기</button>
+      <button class="btn exit-btn" data-lang="ko-KR" style="display:none;">사이트 나가기</button>
+
+      <button class="btn agree-btn" data-lang="en-AU" style="display:none;">Agree and Enter</button>
+      <button class="btn exit-btn" data-lang="en-AU" style="display:none;">Exit Site</button>
+
+      <button class="btn agree-btn" data-lang="en-SG" style="display:none;">Agree and Enter</button>
+      <button class="btn exit-btn" data-lang="en-SG" style="display:none;">Exit Site</button>
+
+    </div>
+  
+</main>
+
+  <script src="../index.js"></script>
+</body>
+</html>
