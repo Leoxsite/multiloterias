@@ -29,19 +29,22 @@ const exitBtns = document.querySelectorAll('.exit-btn');
 // Lista de idiomas suportados
 const supportedLangs = languages.map(l => l.code);
 
-// Detecta idioma do navegador
-const browserLang = navigator.language || navigator.userLanguage || 'pt-BR';
-const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'pt-BR';
-
-// Redireciona automaticamente se não estiver na pasta correta
+// Detecta pasta atual do site
 const pathParts = window.location.pathname.split('/').filter(Boolean);
-const currentFolder = pathParts.length > 0 ? pathParts[0] : '';
-if (currentFolder !== defaultLang) {
+let currentFolder = pathParts.length > 0 ? pathParts[0] : '';
+let currentLang = supportedLangs.includes(currentFolder) ? currentFolder : 'pt-BR';
+
+// Se estiver na raiz do site, redireciona para idioma do navegador automaticamente
+if (pathParts.length === 0) {
+    const browserLang = navigator.language || navigator.userLanguage || 'pt-BR';
+    const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'pt-BR';
     window.location.href = `/${defaultLang}/index.html`;
 }
 
-// Atualiza interface para o idioma selecionado
+// Função para atualizar o idioma na interface
 function updateLanguage(lang) {
+  currentLang = lang;
+
   // Atualiza textos multilíngues visíveis
   titleElements.forEach(el => {
     el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
@@ -93,7 +96,8 @@ function closeLangList() {
 langList.querySelectorAll('li').forEach(item => {
   item.addEventListener('click', () => {
     const lang = item.getAttribute('data-lang');
-    // Redireciona para a pasta do idioma escolhido
+    updateLanguage(lang);
+    // Redireciona para a pasta do idioma selecionado
     window.location.href = `/${lang}/index.html`;
     closeLangList();
   });
@@ -107,24 +111,22 @@ document.addEventListener('click', (e) => {
 });
 
 // Inicializar idioma na carga da página
-updateLanguage(defaultLang);
+updateLanguage(currentLang);
 
 // --- Funções dos botões ---
 
 // Botão "Concordar e Entrar"
 agreeBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    const isInLangFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
-    const target = isInLangFolder ? '../principal.html' : 'principal.html';
-    window.location.href = target;
+    // Sempre abre principal.html na mesma pasta
+    window.location.href = 'principal.html';
   });
 });
 
 // Botão "Sair do Site"
 exitBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    const isInLangFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
-    const target = isInLangFolder ? '../blank.html' : 'blank.html';
-    window.location.href = target;
+    // Sempre abre blank.html na mesma pasta
+    window.location.href = 'blank.html';
   });
 });
