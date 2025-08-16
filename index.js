@@ -16,8 +16,6 @@ const languages = [
   { code: 'ko-KR', label: '한국어 (대한민국)', flag: 'https://flagcdn.com/kr.svg' },
   { code: 'en-AU', label: 'English (Australia)', flag: 'https://flagcdn.com/w640/au.png' },
   { code: 'en-SG', label: 'English (Singapore)', flag: 'https://flagcdn.com/sg.svg'}
-  
-
 ];
 
 const currentLangBtn = document.getElementById('current-lang-btn');
@@ -31,10 +29,19 @@ const exitBtns = document.querySelectorAll('.exit-btn');
 // Lista de idiomas suportados
 const supportedLangs = languages.map(l => l.code);
 
+// Detecta idioma do navegador
+const browserLang = navigator.language || navigator.userLanguage || 'pt-BR';
+const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'pt-BR';
+
+// Redireciona automaticamente se não estiver na pasta correta
+const pathParts = window.location.pathname.split('/').filter(Boolean);
+const currentFolder = pathParts.length > 0 ? pathParts[0] : '';
+if (currentFolder !== defaultLang) {
+    window.location.href = `/${defaultLang}/index.html`;
+}
+
 // Atualiza interface para o idioma selecionado
 function updateLanguage(lang) {
-  currentLang = lang;
-
   // Atualiza textos multilíngues visíveis
   titleElements.forEach(el => {
     el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
@@ -86,12 +93,11 @@ function closeLangList() {
 langList.querySelectorAll('li').forEach(item => {
   item.addEventListener('click', () => {
     const lang = item.getAttribute('data-lang');
-    updateLanguage(lang);
-    localStorage.setItem('selectedLang', lang);  // salva o idioma escolhido
+    // Redireciona para a pasta do idioma escolhido
+    window.location.href = `/${lang}/index.html`;
     closeLangList();
   });
 });
-
 
 // Fechar lista ao clicar fora
 document.addEventListener('click', (e) => {
@@ -101,21 +107,15 @@ document.addEventListener('click', (e) => {
 });
 
 // Inicializar idioma na carga da página
-updateLanguage(currentLang);
+updateLanguage(defaultLang);
 
 // --- Funções dos botões ---
 
 // Botão "Concordar e Entrar"
 agreeBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    localStorage.setItem('selectedLang', currentLang);
-
-    // Detecta se está em uma pasta ou na raiz
     const isInLangFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
-
-    // Se estiver em uma pasta de idioma, sobe um nível
     const target = isInLangFolder ? '../principal.html' : 'principal.html';
-
     window.location.href = target;
   });
 });
@@ -128,5 +128,3 @@ exitBtns.forEach(btn => {
     window.location.href = target;
   });
 });
-
-
