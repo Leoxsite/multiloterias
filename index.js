@@ -31,13 +31,6 @@ const exitBtns = document.querySelectorAll('.exit-btn');
 // Lista de idiomas suportados
 const supportedLangs = languages.map(l => l.code);
 
-// Detecta idioma salvo ou do navegador
-let storedLang = localStorage.getItem('selectedLang');
-const browserLang = navigator.language || navigator.userLanguage || 'en-US';
-let currentLang = supportedLangs.includes(storedLang)
-  ? storedLang
-  : (supportedLangs.includes(browserLang) ? browserLang : 'en-US');
-
 // Atualiza interface para o idioma selecionado
 function updateLanguage(lang) {
   currentLang = lang;
@@ -135,4 +128,5 @@ exitBtns.forEach(btn => {
     window.location.href = target;
   });
 });
+
 
