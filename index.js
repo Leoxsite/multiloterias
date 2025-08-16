@@ -16,6 +16,8 @@ const languages = [
   { code: 'ko-KR', label: '한국어 (대한민국)', flag: 'https://flagcdn.com/kr.svg' },
   { code: 'en-AU', label: 'English (Australia)', flag: 'https://flagcdn.com/w640/au.png' },
   { code: 'en-SG', label: 'English (Singapore)', flag: 'https://flagcdn.com/sg.svg'}
+  
+
 ];
 
 const currentLangBtn = document.getElementById('current-lang-btn');
@@ -26,22 +28,38 @@ const noticeLists = document.querySelectorAll('.notices');
 const agreeBtns = document.querySelectorAll('.agree-btn');
 const exitBtns = document.querySelectorAll('.exit-btn');
 
+// Lista de idiomas suportados
 const supportedLangs = languages.map(l => l.code);
 
-// Detecta idioma do navegador
-let browserLang = navigator.language || navigator.userLanguage;
-let currentLang = supportedLangs.includes(browserLang) ? browserLang : 'pt-BR';
+// Detecta idioma salvo ou do navegador
+let storedLang = localStorage.getItem('selectedLang');
+const browserLang = navigator.language || navigator.userLanguage || 'en-US';
+let currentLang = supportedLangs.includes(storedLang)
+  ? storedLang
+  : (supportedLangs.includes(browserLang) ? browserLang : 'en-US');
 
-// Atualiza elementos da página
+// Atualiza interface para o idioma selecionado
 function updateLanguage(lang) {
   currentLang = lang;
 
-  titleElements.forEach(el => el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none');
-  subtitleElements.forEach(el => el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none');
-  noticeLists.forEach(el => el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none');
-  agreeBtns.forEach(el => el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none');
-  exitBtns.forEach(el => el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none');
+  // Atualiza textos multilíngues visíveis
+  titleElements.forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  subtitleElements.forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  noticeLists.forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  agreeBtns.forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  exitBtns.forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
 
+  // Atualiza botão principal com bandeira e código do idioma
   const langData = languages.find(l => l.code === lang);
   if (langData) {
     currentLangBtn.querySelector('img').src = langData.flag;
@@ -50,16 +68,14 @@ function updateLanguage(lang) {
   }
 }
 
-// Redireciona para a pasta do idioma, caso esteja na raiz
-if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
-  window.location.href = `/${currentLang}/index.html`;
-}
-
-// Botão de seleção de idioma
+// Mostrar/ocultar lista de idiomas ao clicar no botão
 currentLangBtn.addEventListener('click', () => {
   const isExpanded = currentLangBtn.getAttribute('aria-expanded') === 'true';
-  if (isExpanded) closeLangList();
-  else openLangList();
+  if (isExpanded) {
+    closeLangList();
+  } else {
+    openLangList();
+  }
 });
 
 function openLangList() {
@@ -73,29 +89,40 @@ function closeLangList() {
   currentLangBtn.setAttribute('aria-expanded', 'false');
 }
 
-// Selecionar idioma manualmente
+// Selecionar idioma ao clicar em um item da lista
 langList.querySelectorAll('li').forEach(item => {
   item.addEventListener('click', () => {
     const lang = item.getAttribute('data-lang');
     updateLanguage(lang);
-    window.location.href = `/${lang}/index.html`; // redireciona para pasta correta
+    localStorage.setItem('selectedLang', lang);  // salva o idioma escolhido
     closeLangList();
   });
 });
 
+
 // Fechar lista ao clicar fora
-document.addEventListener('click', e => {
-  if (!currentLangBtn.contains(e.target) && !langList.contains(e.target)) closeLangList();
+document.addEventListener('click', (e) => {
+  if (!currentLangBtn.contains(e.target) && !langList.contains(e.target)) {
+    closeLangList();
+  }
 });
 
-// Inicializa idioma na carga da página
+// Inicializar idioma na carga da página
 updateLanguage(currentLang);
+
+// --- Funções dos botões ---
 
 // Botão "Concordar e Entrar"
 agreeBtns.forEach(btn => {
   btn.addEventListener('click', () => {
+    localStorage.setItem('selectedLang', currentLang);
+
+    // Detecta se está em uma pasta ou na raiz
     const isInLangFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
+
+    // Se estiver em uma pasta de idioma, sobe um nível
     const target = isInLangFolder ? '../principal.html' : 'principal.html';
+
     window.location.href = target;
   });
 });
@@ -108,3 +135,4 @@ exitBtns.forEach(btn => {
     window.location.href = target;
   });
 });
+
