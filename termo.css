@@ -86,7 +86,7 @@ main {
   color: black;
   font-weight: 900;
   font-family: 'Orbitron', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 2px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
@@ -273,4 +273,5 @@ footer .termo-link:hover {
   transform: scale(1.1); /* aumenta a bola quando passa o mouse */
   animation-play-state: running; /* Não pausa a animação */
 }
+
 
