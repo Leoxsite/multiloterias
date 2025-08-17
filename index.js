@@ -116,23 +116,16 @@ updateLanguage(currentLang);
 agreeBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     localStorage.setItem('selectedLang', currentLang);
-
-    // Detecta se está em uma pasta ou na raiz
-    const isInLangFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
-
-    // Se estiver em uma pasta de idioma, sobe um nível
-    const target = isInLangFolder ? '../principal.html' : 'principal.html';
-
-    window.location.href = target;
+    window.location.href = "/principal.html"; // sempre na raiz
   });
 });
 
 // Botão "Sair do Site"
 exitBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    const isInLangFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
-    const target = isInLangFolder ? '../blank.html' : 'blank.html';
-    window.location.href = target;
+    window.location.href = "/blank.html"; // sempre na raiz
   });
 });
+
+
 
