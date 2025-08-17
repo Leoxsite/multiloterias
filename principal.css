@@ -278,7 +278,7 @@ footer {
   color: black; /* número preto */
   font-weight: 900;
   font-family: 'Orbitron', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 2px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
@@ -348,4 +348,5 @@ button.flag-btn[onclick*="japao.html"] {
 button.flag-btn[onclick*="portugal.html"] {
   width: 150.5px;    /* aumenta largura */
   height: 150.5px;   /* aumenta altura */
+
 }
